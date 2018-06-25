@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>管理员后台管理</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link href="css/editor.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=iconicfill"/>
+    <link rel="stylesheet" href="css/Managerbackground.css">
+    <link rel="stylesheet" href="css/imageuploader.css">
+
+
+</head>
+<body class="layui-layout-body">
+<div id="Shelteringlayer" style="width: 1523px;
+height: 1000px;
+z-index: 9999999;
+background-image: url('./img/mangerbackground.png');
+background-repeat:round;
+background-size:cover;
+position: absolute;">
+
+</div>
+<div class="layui-layout layui-layout-admin" style="display: none">
+    <div class="layui-header">
+        <div class="layui-logo">管理员后台</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <!--<li class="layui-nav-item"><a href="">商品管理</a></li>-->
+            <!--<li class="layui-nav-item"><a href="">用户</a></li>-->
+            <!--<li class="layui-nav-item">-->
+            <!--<a href="javascript:;">其它系统</a>-->
+            <!--<dl class="layui-nav-child">-->
+            <!--<dd><a href="">邮件管理</a></dd>-->
+            <!--<dd><a href="">消息管理</a></dd>-->
+            <!--<dd><a href="">授权管理</a></dd>-->
+            <!--</dl>-->
+            <!--</li>-->
+            <li class="layui-nav-item" style="min-width: 124px;" id="customer_service"><a href="javascript:;">客服账号管理</a>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right" style="min-width: 400px;">
+            <li class="layui-nav-item" style="margin-left: 36%;display: none"><a href="javascript:;" role="button"
+                                                                                 data-toggle="modal"
+                                                                                 data-target="#login">登录</a></li>
+            <li class="layui-nav-item" style="margin-left: 5%;display: none;">
+                <a href="javascript:;" id="login_message">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    <span style="white-space: nowrap;overflow-x: hidden;max-width: 100px;display: -moz-box;text-overflow: ellipsis;">贤心</span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" id="quit">注销</a></dd>
+                    <dd><a href="javascript:;" id="leave">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <!--<li class="layui-nav-item layui-nav-itemed">-->
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">关于我们</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">关于我们</a></dd>
+                        <dd><a href="javascript:;">资格许可证</a></dd>
+                        <dd><a href="javascript:;">基地展示</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;">客户实例</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">产品中心</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">蛙苗</a></dd>
+                        <dd><a href="javascript:;">成蛙</a></dd>
+                        <dd><a href="javascript:;">种蛙</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;">企业资讯</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">公司动态</a></dd>
+                        <dd><a href="javascript:;">常见问题</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;">联系我们</a>
+                <li class="layui-nav-item"><a href="javascript:;">客户评价</a>
+                <li class="layui-nav-item"><a href="javascript:;">主页视频</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;min-width: 1154px;">
+            <!--关于我们-->
+            <div id="about">
+                <div id="textarea">
+
+                </div>
+                <button class="btn btn-info">提交</button>
+            </div>
+            <!--资格许可证-->
+            <div id="container">
+                <ul>
+                </ul>
+                <section role="main" class="l-main" style="margin-top:50px;margin-bottom:50px;">
+                    <header class="site-header">
+                    </header>
+                    <div class="uploader__box js-uploader__box l-center-box">
+                        <form action="#" method="POST">
+                            <div class="uploader__contents">
+                                <label class="button button--secondary" for="fileinput">请选择文件</label>
+                                <input id="fileinput" class="uploader__file-input" type="file" multiple
+                                       value="Select Files">
+                            </div>
+                            <input class="button button--big-bottom" type="submit" value="Upload Selected Files">
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <!--基地展示-->
+            <div id="Basedisplay">
+                <ul>
+                </ul>
+                <section role="main" class="l-main" style="margin-top:50px;margin-bottom:50px;">
+                    <header class="site-header">
+                    </header>
+                    <div class="uploader__box js-uploader__box l-center-box">
+                        <form action="#" method="POST">
+                            <div class="uploader__contents">
+                                <label class="button button--secondary" for="fileinput1">请选择文件</label>
+                                <input id="fileinput1" class="uploader__file-input" type="file" multiple
+                                       value="Select Files">
+                            </div>
+                            <input class="button button--big-bottom" type="submit" value="Upload Selected Files">
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <!--蛙苗-->
+            <div id="Frog_seedling">
+                <a role="button" class="btn btn-info" style="margin-left: 8px;margin-bottom: 10px;">添加蛙苗描述&nbsp;&nbsp;<sapn
+                        class="glyphicon glyphicon-plus"></sapn>
+                </a>
+                <ul>
+                    <!--<li><img src="img/1.jpg"></span></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                </ul>
+                <section role="main" class="l-main" style="margin-top:50px;margin-bottom:50px;">
+                    <header class="site-header">
+                    </header>
+                    <div class="uploader__box js-uploader__box l-center-box">
+                        <form action="#" method="POST">
+                            <div class="uploader__contents">
+                                <label class="button button--secondary" for="fileinput2">请选择文件</label>
+                                <input id="fileinput2" class="uploader__file-input" type="file" multiple
+                                       value="Select Files">
+                            </div>
+                            <input class="button button--big-bottom" type="submit" value="Upload Selected Files">
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <!--成蛙-->
+            <div id="AdultFrog">
+                <a role="button" class="btn btn-info" style="margin-left: 8px;margin-bottom: 10px;">添加成蛙描述&nbsp;&nbsp;<sapn
+                        class="glyphicon glyphicon-plus"></sapn>
+                </a>
+                <ul>
+                    <!--<li><img src="img/1.jpg"></span></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                </ul>
+                <section role="main" class="l-main" style="margin-top:50px;margin-bottom:50px;">
+                    <header class="site-header">
+                    </header>
+                    <div class="uploader__box js-uploader__box l-center-box">
+                        <form action="#" method="POST">
+                            <div class="uploader__contents">
+                                <label class="button button--secondary" for="fileinput3">请选择文件</label>
+                                <input id="fileinput3" class="uploader__file-input" type="file" multiple
+                                       value="Select Files">
+                            </div>
+                            <input class="button button--big-bottom" type="submit" value="Upload Selected Files">
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <!--种蛙-->
+            <div id="Frog">
+                <a role="button" class="btn btn-info" style="margin-left: 8px;margin-bottom: 10px;">添加种蛙描述&nbsp;&nbsp;<sapn
+                        class="glyphicon glyphicon-plus"></sapn>
+                </a>
+                <ul>
+                    <!--<li><img src="img/1.jpg"></span></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                    <!--<li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li><li><img src="img/1.jpg"></li>-->
+                </ul>
+                <section role="main" class="l-main" style="margin-top:50px;margin-bottom:50px;">
+                    <header class="site-header">
+                    </header>
+                    <div class="uploader__box js-uploader__box l-center-box">
+                        <form action="#" method="POST">
+                            <div class="uploader__contents">
+                                <label class="button button--secondary" for="fileinput4">请选择文件</label>
+                                <input id="fileinput4" class="uploader__file-input" type="file" multiple
+                                       value="Select Files">
+                            </div>
+                            <input class="button button--big-bottom" type="submit" value="Upload Selected Files">
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <!--产品中心描述-->
+            <div id="ProductCenter">
+                <h1></h1><span class="sr-only"></span>
+                <div id="textarea3">
+
+                </div>
+                <button class="btn btn-info">提交</button>
+                <button class="btn btn-info">返回</button>
+            </div>
+
+            <!--公司动态-->
+            <div id="CompanyDynamics">
+                <ul>
+                    <!--<li title="公司动态"><input type="checkbox"><span>养蛙行业经济价值</span><span class="sr-only">1</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                    <!--<li title="公司动态"><input type="checkbox"><span>黑斑蛙养殖前景</span><span class="sr-only">2</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                    <!--<li title="公司动态"><input type="checkbox"><span>幼蛙的饲养</span><span class="sr-only">3</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                    <!--<li title="公司动态"><input type="checkbox"><span>黑斑蛙的训食方法</span><span class="sr-only">4</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                </ul>
+                <p>
+                    <label>选择:</label><input type="button" class="btn btn-danger" value="全选" id="btn1"><input id="btn2"
+                                                                                                              type="button"
+                                                                                                              class="btn btn-info"
+                                                                                                              value="取消">
+                    <label>批量删除:</label><input type="button" class="btn btn-warning" value="确定" id="btn3">
+                    <label>添加:</label><input type="button" class="btn btn-info" value="添加" id="btn4">
+                    <label for="btn5">搜索关键字:</label><input type="text" class="form-control" id="btn5"
+                                                           placeholder="请输入标题"><input type="button" class="btn btn-info"
+                                                                                      value="确定" id="btn6">
+                    <label>刷新:</label><span class="glyphicon glyphicon-refresh"></span>
+                </p>
+
+            </div>
+
+            <!--公司动态的对应 文章的内容-->
+            <div id="CompanyDynamics_content">
+                <h1></h1><span class="sr-only"></span>
+                <div id="textarea1">
+
+                </div>
+                <button class="btn btn-info">提交</button>
+                <button class="btn btn-info">返回</button>
+            </div>
+
+            <!--常见问题-->
+            <div id="CommonProblem">
+                <ul>
+                    <!--<li title="常见问题"><input type="checkbox"><span>青蛙养殖应做好哪些提前准备</span><span class="sr-only">5</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                    <!--<li title="常见问题"><input type="checkbox"><span>常见黑斑蛙幼苗的危害及防治</span><span class="sr-only">6</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                    <!--<li title="常见问题"><input type="checkbox"><span>青蛙养殖应做好哪些提前准备1</span><span class="sr-only">7</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                    <!--<li title="常见问题"><input type="checkbox"><span>常见黑斑蛙幼苗的危害及防治1</span><span class="sr-only">8</span>-->
+                    <!--<input type="button" class="btn btn-info" value="编辑"><input type="button" class="btn btn-danger"-->
+                    <!--value="删除"></li>-->
+                </ul>
+                <p>
+                    <label>选择:</label><input type="button" class="btn btn-danger" value="全选" id="btn11"><input
+                        id="btn21" type="button" class="btn btn-info" value="取消">
+                    <label>批量删除:</label><input type="button" class="btn btn-warning" value="确定" id="btn31">
+                    <label>添加:</label><input type="button" class="btn btn-info" value="添加" id="btn41">
+                    <label for="btn5">搜索关键字:</label><input type="text" class="form-control" id="btn51"
+                                                           placeholder="请输入标题"><input type="button" class="btn btn-info"
+                                                                                      value="确定" id="btn61">
+                    <label>刷新:</label><span class="glyphicon glyphicon-refresh"></span>
+                </p>
+            </div>
+            <!--常见问题的对应文章的内容-->
+            <div id="CommonProblem_content">
+                <h1></h1><span class="sr-only"></span>
+                <div id="textarea2">
+
+                </div>
+                <button class="btn btn-info">提交</button>
+                <button class="btn btn-info">返回</button>
+            </div>
+
+
+            <!--客户实例-->
+            <ul id="CustomerInstance">
+                <!--<li class="customer">-->
+                <!--<div style="float: left; margin-left: -17px;padding: 17px;">-->
+                <!--<img src="img/2.jpg" href="#" title="永泉农庄" class="customer_img" alt="图片">-->
+                <!--</div>-->
+                <!--<div style="padding: 17px;line-height: 27px;">-->
+                <!--<div><span class="sr-only">1</span><h4 style="font-weight: bold;font-size: 20px;float:left">永泉农庄 </h4>-->
+                <!--<span>联系电话:</span><label>18255341632</label><span>发布时间:</span>-->
+                <!--<label style="font-family: initial;">2018-5-6</label>-->
+                <!--</div>-->
+                <!--<p style="max-height: 117px;overflow-y: auto;margin-top: 9px;width: 802px;">客户名称：永泉农庄-->
+                <!--客户评价：福贵养殖场一直为我们提供青蛙肉的供应，他们的蛙肉很新鲜、</p>-->
+                <!--</div>-->
+
+                <!--<button class="btn btn-warning" >删除</button>-->
+                <!--</li>-->
+
+                <!--分页-->
+                <ul id="ampaginationlg-bootstrap" style="float: left;"></ul>
+                <div id="page_skip">&nbsp;
+                    <span>跳转至</span>
+                    <input type="text" id="input_page" style="width: 43px;height: 28px;text-align: center;">
+                    <button class="btn btn-info" id="page_btn">确定</button>
+                </div>
+                <!---->
+            </ul>
+
+            </ul>
+            <!--联系我们-->
+            <form id="contact" type="post">
+                <!--<input type="text" id="bussiness_name">义安区西联乡福贵养殖场</input>-->
+                <!--<p id="business_address"><label>地址:</label>义安区铜陵市经济开发区张家桥</p>-->
+                <!--<p id="business_tel"><label>手机:</label>13856267883、18656227784</p>-->
+                <!--<p id="business_boss"><label>联系人:</label>查先生</p>-->
+                <!--<div id="baidu_map"></div>-->
+                <div class="form-group has-feedback">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <span class="glyphicon glyphicon-flag form-control-feedback" style="right: 18px;"></span>
+
+                        <input type="text" class="form-control" id="bussiness_name" name="bussiness_name"
+                               placeholder="请输入企业名称">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group has-feedback">
+                    <div class="col-sm-offset-2 col-sm-8" id="distpicker" style="margin-bottom: 12px;">
+                        <!--<input type="text" class="form-control" id="business_address" name="business_address" placeholder="请输入企业地址">-->
+                        <!--<span class="glyphicon glyphicon-map-marker form-control-feedback" style="right: 18px"></span>-->
+                        <select class="form-control"></select>
+                        <select class="form-control"></select>
+                        <select class="form-control"></select>
+                        <br>
+                        <span class="glyphicon glyphicon-map-marker form-control-feedback"
+                              style="right: 21px;top: 45px;" id="address"></span>
+
+                        <input type="text" name="address" id="Detailed_address" class="form-control"
+                               placeholder="请输入详细地址">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group has-feedback">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <span class="glyphicon glyphicon-phone form-control-feedback" style="right: 18px;"></span>
+                        <input type="text" class="form-control" id="business_tel" name="business_tel"
+                               placeholder="请输入手机号">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group has-feedback">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <span class="glyphicon glyphicon-phone form-control-feedback" style="right: 18px;"></span>
+
+                        <input type="text" class="form-control" id="business_tel1" name="business_tel1"
+                               placeholder="请输入备用手机号,可以不填">
+
+                    </div>
+                </div>
+                <br>
+                <div class="form-group has-feedback">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <span class="glyphicon glyphicon-user form-control-feedback" style="right: 18px;"></span>
+                        <input type="text" class="form-control" id="business_boss" name="business_boss"
+                               placeholder="请输入联系人的姓名">
+                    </div>
+                </div>
+                <br>
+                <div class="col-sm-offset-2 col-sm-8">
+                    <input type="submit" class="btn btn-info" value="提交"><input type="reset" class="btn btn-warning"
+                                                                                value="重置">
+                </div>
+            </form>
+
+            <!--客户评价-->
+            <ul id="CustomerEvaluation">
+                <!--分页-->
+                <ul id="ampaginationlg-bootstrap1" style="float: left;"></ul>
+                <div id="page_skip1">&nbsp;
+                    <span>跳转至</span>
+                    <input type="text" id="input_page1" style="width: 43px;height: 28px;text-align: center;">
+                    <button class="btn btn-info" id="page_btn1">确定</button>
+                </div>
+            </ul>
+            <div id="Customerservice_account_management">
+                <table class="table table-bordered table-striped table-hover table-condensed">
+                    <caption>客服账号密码(目前只支持一个客服)</caption>
+                    <tr class="success">
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr class="info">
+                        <td id="id"></td>
+                        <td id="customer_username">
+                            <div></div>
+                            <input type="text" class="form-control" maxlength="8" value=""></td>
+                        <td id="customer_password">
+                            <div></div>
+                            <input type="text" class="form-control" maxlength="18" value=""></td>
+                        <td>
+                            <!--<button class="btn btn-info">编辑</button>-->
+                            <button class="btn btn-danger" id="customer_delete">删除</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--主页视频-->
+            <div id="index_video">
+                <ul>
+                    <li>
+                        <div class="wrapper">
+                            <div class="js-video">
+                                <video class="js-media">
+                                    <source src="indexVideo/VID20180303215529.mp4" type="video/mp4"/>
+                                    <p>你的浏览器不支持 HTML5 Video。</p>
+                                </video>
+                                <i data-playPause class="playPause fa fa-play ui-icon"><span></span></i>
+                                <div class="ui">
+                                    <div>
+                                        <div data-progress class="progress">
+                                            <div data-buffer class="progress-buffer"></div>
+                                            <div data-time class="progress-time"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="timeDisplay"><i data-currentTime>0:00</i> / <i
+                                                data-duration>0:00</i></span>
+                                    </div>
+                                    <div>
+                                        <i data-mute class="fa fa-volume-up ui-icon"></i>
+                                    </div>
+                                    <div>
+                                        <div data-volume="100" class="volumeControl"><span
+                                                class="ui-slider-handle"></span></div>
+                                    </div>
+                                </div>
+                                <i data-fullscreen class="fullscreen iconicfill-fullscreen" title="fullscreen"></i>
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <section role="main" class="l-main" style="margin-top:50px;margin-bottom:50px;">
+                    <header class="site-header">
+                    </header>
+                    <div class="uploader__box js-uploader__box l-center-box">
+                        <form action="#" method="POST">
+                            <div class="uploader__contents">
+                                <label class="button button--secondary" for="fileinput7">请选择文件</label>
+                                <input id="fileinput7" class="uploader__file-input" type="file" multiple
+                                       value="Select Files">
+                            </div>
+                            <input class="button button--big-bottom" type="submit" value="Upload Selected Files">
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+    </div>
+</div>
+
+<!--登录注册框-->
+<div class="modal" id="login"
+     style="display:block;z-index:10000000000; padding: 59px;bottom: initial;left: initial;top: 110px; right: 20px;">
+    <div class="modal-dialog" style="width:459px">
+        <div class="modal-content" style="background-color: #62a6e0;">
+            <div class="modal-header">
+                <!--<button class="close" data-dismiss="modal"><span>&times;<span class="sr-only">关闭登录框</span></span>-->
+                </button>
+                <h4 class="modal-title">管理员登录</h4>
+            </div>
+            <div class="modal-body">
+                <!-- 登录表单-->
+                <form id="form_login" class="form form-horizontal text-left" method="post">
+                    <div class="form-group has-feedback">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            <input type="text" class="form-control" id="login_username" name="login_username"
+                                   placeholder="请输入用户名"/>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            <input type="password" class="form-control" id="login_password" name="login_password"
+                                   placeholder="请输入密码"/>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback" style="display:flex;">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <input type="password" class="form-control" id="code_input" name="code"
+                                   placeholder="请输入验证码" style="float: left;width: 188px;"/>
+                            <div class="yanzma" style="float:left;padding: 2px 31px;">
+                                <div id="v_container" style="width: 99px;height: 31px;"></div>
+                            </div>
+                            <label id="code-error" for="code_input"  style="color:red;display:none;position: absolute;bottom: -16px;">验证码错误</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <input type="checkbox" id="save_password"><span
+                                style="position: absolute;font-size: 12px; margin-left: 8px;margin-top: 2px;">
+                            记住密码</span>
+                            <input type="checkbox" id="automatic_login" style="margin-left: 67px;"><span
+                                style="position: absolute;font-size: 12px; margin-left: 8px;margin-top: 2px;">
+                            自动登录</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-sm-offset-1 col-sm-10">
+                            <button type="submit" id="btn_login" class="btn btn-info">登录</button>
+                            <input type="reset" class="btn btn-warning" value="重置">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <span class="col-sm-offset-1 col-sm-6">忘记密码了？<a role="button" id="update_password"
+                                                                    style="color:red">找回密码</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--图像全屏-->
+<div id="galleria" style=" opacity: 0;position: absolute;">
+</div>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="bootstrap/js/jquery.validate-1.13.1.js"></script>
+<script src="http://www.imooc.com/data/jquery.cookie.js" type="text/javascript"></script>
+<script src="js/editor.js"></script>
+<script src="js/layer.js"></script>
+<script src="layui/layui.js"></script>
+<script src="js/imageuploader.js"></script>
+<script src="js/videouploader.js"></script>
+<script src="js/distpicker.data.js"></script>
+<script src="js/distpicker.js"></script>
+<script type="text/javascript" src="js/am-pagination.js"></script>
+<!--全屏图片-->
+<!--视频播放-->
+<script src="js/modernizr.min.js" type="text/javascript"></script>
+<script src="http://cdn.bootcss.com/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script src="js/vedio.js"></script>
+
+<script src="js/Managerbackground.js"></script>
+</body>
+</html>

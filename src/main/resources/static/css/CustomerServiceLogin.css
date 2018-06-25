@@ -1,0 +1,35 @@
+body{
+    background-image: url("../img/customer_service.jpg");
+    background-repeat: round;
+    background-size: cover;
+    width: 1523px;
+    height: 750px;
+}
+.panel{
+    width: 459px;
+
+    position: absolute;
+
+    top: 210px;
+
+    right: 70px;
+
+    border: solid 1px black;
+
+    /*padding: 56px 10px;*/
+
+    background-color: #b1c5e4;
+}
+#form_login{
+    padding: 15px 0px;
+}
+#form_login >div:nth-child(n+2){
+margin-top:27px;
+}
+label.error {
+    color: red;
+}
+
+input.error {
+    border: 1px solid red;
+}
