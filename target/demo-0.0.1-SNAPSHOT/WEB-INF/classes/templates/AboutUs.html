@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minmum-scale=1,user-scalable=no">
+    <title>农村黑斑蛙养殖销售</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/AboutUs/aboutus.css">
+    <script src="js/jquery-1.9.1.js"></script>
+</head>
+<script>
+    //客服
+    var x = 0;
+    var y = 0;
+    var x1 = 0;
+    var y1 = 0;
+    var moveable = false;
+    var index = 20000;
+    var win_left = 0;
+    var win_top = 0;
+
+    function win_down(obj, evt) {
+        e = evt ? evt : window.event;
+        obj.setCapture();
+        var win = obj.parentNode; //取得父窗口
+        x = e.clientX; //取得当前坐标的X坐标
+        y = e.clientY; //取得当前坐标的Y坐标
+        x1 = win.offsetLeft;//将父窗体距离浏览器左边界的距离转换为number
+        y1 = win.offsetTop; //将父窗体距离浏览器左边界的距离转换为number
+        moveable = true;
+    };
+
+    function win_move(obj, evt) {
+        e = evt ? evt : window.event;
+        if (moveable) {
+            var win = obj.parentNode;
+            win_left = x1 + e.clientX - x;
+            win_top = y1 + e.clientY - y;
+            win.style.left = win_left + "px";
+            win.style.top = win_top + "px";
+        }
+    };
+
+    //停止拖动
+    function win_up(obj) {
+        obj.releaseCapture();
+        var win = obj.parentNode;
+        if (win_left < 0)
+            win_left = 0;
+        if (win_left > (window.innerWidth - win.clientWidth))
+            win_left = window.innerWidth - win.clientWidth;
+        if (win_top < 0)
+            win_top = 0;
+        if (win_top > (window.innerHeight - win.clientHeight))
+            win_top = window.innerHeight - win.clientHeight;
+        win.style.left = win_left + "px";
+        win.style.top = win_top + "px";
+        moveable = false;
+    };
+
+</script>
+<!--导航条-->
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar_first">
+    <div class="container container-fluid ">
+        <ul class="nav navbar-nav">
+            <li class="menu_item current-menu-item"><a style="font-size:22px" href="/index.html">黑斑蛙销售</a>
+                <div class="wee" ></div>
+            </li>
+            <li class="menu_item"><a href="/AboutUs.html">关于我们</a>
+                <ul class="dropdown-menu">
+                    <li id="about_1"><a href="/AboutUs.html">关于我们</a></li>
+                    <li><a href="/EligibilityPermit.html">资格许可证</a></li>
+                    <li><a href="/BaseDisplay.html">基地展示</a></li>
+                </ul>
+            </li>
+            <li class="menu_item"><a href="/CustomerInstance.html">客户实例</a></li>
+            <li class="menu_item" id="ProductCenter"><a href="/ProductCenter.html">产品中心</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/FrogSeedling.html">蛙苗</a></li>
+                    <li><a href="/AdultFrog.html">成蛙</a></li>
+                    <li><a href="/Frog.html">种蛙</a></li>
+                </ul>
+            </li>
+            <li class="menu_item"><a href="/EnterpriseInformation.html">企业资讯</a>
+                <ul class="dropdown-menu">
+                    <li id="Enterpriseconsulting1"><a href="/CompanyDynamics.html">公司动态</a></li>
+                    <li id="Enterpriseconsulting2"><a href="/CommonProblem.html">常见问题</a></li>
+                </ul>
+            </li>
+            <li class="menu_item"><a href="/ContactUs.html">联系我们</a></li>
+            <li class="menu_item" id="Feedback"><a role="button" href="/CustomerEvaluation.html">客户评价</a></li>
+        </ul>
+    </div>
+</nav>
+<!--轮播图-->
+<div id="pbSliderWrap" style="background:url('img/index.jpg') no-repeat  center;background-size: cover">
+
+</div>
+<!--养殖青蛙的一些信息-->
+<nav class="navbar navbar-default" id="nav_menu">
+    <ul class="nav nav-tabs" id="forg_message">
+        <li class="active">
+            <a>
+            <span class="glyphicon glyphicon-home"></span>
+           <span onclick="window.location.href='/index.html';">首页</span><span> > </span><span onclick="window.location.href='/AboutUs.html';">关于我们</span></a>
+        </li>
+        <div class="tab-content" style="min-height: 200px;">
+            <div class="tab-pane fade in active" id="aa">
+                <div id="nav_all_extend">
+                    <div id="nav_extend">
+                        <div><span>关于我们</span></div>
+                        <div onclick="window.location.href='/AboutUs.html';">关于我们</div>
+                        <div onclick="window.location.href='/EligibilityPermit.html';">资格许可证</div>
+                        <div onclick="window.location.href='/BaseDisplay.html';">基地展示</div>
+                    </div>
+                    <div>
+                        <div><span>公司动态</span></div>
+                    </div>
+                    <div>
+                        <div><span>推荐产品</span></div>
+                    </div>
+
+                </div>
+                <div id="nav_content" style="">
+               <span id="nav_span">
+               </span>
+                </div>
+                <!--返回到顶部-->
+                <div id="top">
+                    <a href="#pbSliderWrap" style="width: 100%;height: 100%;display: block;">
+                        <span class="glyphicon glyphicon-chevron-up"></span></a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </ul>
+
+</nav>
+<div id="footer">
+    <div>
+        <p><span></span></p>
+        <p><label>地址:</label>&nbsp;<span></span></p>
+        <p><label>手机:</label>&nbsp;<span></span>&nbsp;&nbsp;<label>联系人:</label><span></span></p>
+    </div>
+</div>
+
+<!--在线客服-->
+<div id="customer_service">
+    <div id="customer_sevice_head" onmousedown="win_down(this,event)" onmousemove="win_move(this,event)"
+         onmouseup="win_up(this)">
+        <label>在线咨询</label><span><img src="img/最小化.png"></span>
+    </div>
+    <div id="customer_service_content">
+    </div>
+    <div id="customer_service_foot">
+                      <textarea id="customer_service_input" class="form-control">
+                      </textarea>
+        <button class="btn btn-default">发送</button>
+    </div>
+</div>
+<!---->
+<div id="customer_service_small">
+    <label>在线咨询</label><span class="badge"></span>
+</div>
+<script src="js/layer.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="js/AboutUs/aboutus.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,minmum-scale=0.5,user-scalable=no">
+<title>验证身份</title>
+    <link rel="stylesheet" href="css/findback_password.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/layui.css">
+</head>
+<style>
+    #send_code{
+        width: 57px;
+        height: 29px;
+    }
+    .code-error{
+        margin-left: 100px;
+        color: red;
+        max-width: 111px;
+    }
+</style>
+<body>
+
+  <div class="content">
+   <div class="web-width">
+     <div class="for-liucheng">
+      <div class="liulist for-cur"></div>
+      <div class="liulist for-cur"></div>
+      <div class="liulist"></div>
+      <div class="liulist"></div>
+      <div class="liutextbox">
+       <div class="liutext for-cur"><em>1</em><br /><strong>填写用户名</strong></div>
+       <div class="liutext for-cur"><em>2</em><br /><strong>验证身份</strong></div>
+       <div class="liutext"><em>3</em><br /><strong>设置新密码</strong></div>
+       <div class="liutext"><em>4</em><br /><strong>完成</strong></div>
+      </div>
+     </div><!--for-liucheng/-->
+     <form action="" method="post" class="forget-pwd">
+       <dl class="sel-yzyx">
+        <dt><label for="email" class="control-label">你的邮箱:</label></dt>
+        <dd><input type="text" id="email" th:value="${email}" class="form-control" readonly disabled="disabled"/></dd>
+        <div class="clears"></div>
+       </dl>
+       <dl>
+        <dt><label for="code" class="control-label">邮箱校验码:</label></dt>
+        <dd><input type="text" id="code" name="code" class="form-control" style="float: left;"/> <button class="btn btn-info" id="send_code"><span>发送</span></button></dd>
+           <label class="code-error" for="code" style="display: none;">请输入验证码</label>
+           <div class="clears"></div>
+       </dl>
+       <div class="subtijiao"><input type="submit" class="btn btn-info" id="submit" value="提交" style="margin-left: -9px;"/></div>
+      </form>
+   </div>
+  </div>
+  <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+  <script src="js/forgetPwd2.js"></script>
+<script src="js/layer.js"></script>
+</body>
+</html>

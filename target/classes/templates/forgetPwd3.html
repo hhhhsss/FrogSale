@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" contect="http://www.webqin.net">
+<title>忘记密码</title>
+    <link rel="stylesheet" href="css/findback_password.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/layui.css">
+</head>
+<style>
+    input.error{
+        border:1px solid red;
+    }
+ label.error{
+     color:red;
+     margin-left: -25px;
+ }
+</style>
+<body>
+
+  <div class="content">
+   <div class="web-width">
+     <div class="for-liucheng">
+      <div class="liulist for-cur"></div>
+      <div class="liulist for-cur"></div>
+      <div class="liulist for-cur"></div>
+      <div class="liulist"></div>
+      <div class="liutextbox">
+       <div class="liutext for-cur"><em>1</em><br /><strong>填写账户名</strong></div>
+       <div class="liutext for-cur"><em>2</em><br /><strong>验证身份</strong></div>
+       <div class="liutext for-cur"><em>3</em><br /><strong>设置新密码</strong></div>
+       <div class="liutext"><em>4</em><br /><strong>完成</strong></div>
+      </div>
+     </div><!--for-liucheng/-->
+     <form action="" method="put" class="forget-pwd">
+       <dl>
+        <dt><label class="control-label" for="password">新密码：</label></dt>
+        <dd><input type="password" class="form-control" id="password" name="password"/></dd>
+        <div class="clears"></div>
+       </dl> 
+       <dl>
+           <dt><label class="control-label" for="confirm_password">确认密码：</label></dt>
+        <dd><input type="password" class="form-control" id="confirm_password" name="confirm_password"/></dd>
+        <div class="clears"></div>
+       </dl> 
+       <div class="subtijiao"><input type="submit" id="submit" value="提交" class="btn btn-info" style="margin-left: -9px;"/>
+           <input type="reset" id="reset" value="重置" class="btn btn-warning"/></div>
+      </form><!--forget-pwd/-->
+   </div><!--web-width/-->
+  </div><!--content/-->
+  <script src="bootstrap/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/jquery.validate-1.13.1.js"></script>
+  <script src="js/layer.js"></script>
+<script src="js/forgetPwd3.js"></script>
+
+</body>
+</html>

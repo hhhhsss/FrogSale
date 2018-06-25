@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minmum-scale=1,user-scalable=no">
+    <title>农村黑斑蛙养殖销售</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/layui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="icons/entypo.css">
+    <link rel="stylesheet" href="css/slidorion.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/global.css"/>
+    <link href="css/jquery.easy_slides.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.9.1.js"></script>
+</head>
+<script>
+    //客服
+    var x = 0;
+    var y = 0;
+    var x1 = 0;
+    var y1 = 0;
+    var moveable = false;
+    var index = 20000;
+    var win_left = 0;
+    var win_top = 0;
+
+    function win_down(obj, evt) {
+        e = evt ? evt : window.event;
+        obj.setCapture();
+        var win = obj.parentNode; //取得父窗口
+        x = e.clientX; //取得当前坐标的X坐标
+        y = e.clientY; //取得当前坐标的Y坐标
+        x1 = win.offsetLeft;//将父窗体距离浏览器左边界的距离转换为number
+        y1 = win.offsetTop; //将父窗体距离浏览器左边界的距离转换为number
+        moveable = true;
+    };
+
+    function win_move(obj, evt) {
+        e = evt ? evt : window.event;
+        if (moveable) {
+            var win = obj.parentNode;
+            win_left = x1 + e.clientX - x;
+            win_top = y1 + e.clientY - y;
+            win.style.left = win_left + "px";
+            win.style.top = win_top + "px";
+        }
+    };
+
+    //停止拖动
+    function win_up(obj) {
+        obj.releaseCapture();
+        var win = obj.parentNode;
+        if (win_left < 0)
+            win_left = 0;
+        if (win_left > (window.innerWidth - win.clientWidth))
+            win_left = window.innerWidth - win.clientWidth;
+        if (win_top < 0)
+            win_top = 0;
+        if (win_top > (window.innerHeight - win.clientHeight))
+            win_top = window.innerHeight - win.clientHeight;
+        win.style.left = win_left + "px";
+        win.style.top = win_top + "px";
+        moveable = false;
+    };
+
+</script>
+<!--导航条-->
+<body>
+<div class="loading">
+    <div class="pic">
+    </div>
+</div>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar_first">
+    <div class="container container-fluid ">
+        <ul class="nav navbar-nav">
+            <li class="menu_item current-menu-item"><a style="font-size:22px">黑斑蛙销售</a>
+                <div class="wee" ></div>
+            </li>
+            <li class="menu_item"><a href="#">关于我们</a>
+                <ul class="dropdown-menu">
+                    <li id="about_1"><a href="#">关于我们</a></li>
+                    <li><a href="#">资格许可证</a></li>
+                    <li><a href="#">基地展示</a></li>
+                </ul>
+            </li>
+            <li class="menu_item"><a href="#">客户实例</a></li>
+            <li class="menu_item" id="ProductCenter"><a href="#">产品中心</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">蛙苗</a></li>
+                    <li><a href="#">成蛙</a></li>
+                    <li><a href="#">种蛙</a></li>
+                </ul>
+            </li>
+            <li class="menu_item"><a href="#">企业资讯</a>
+                <ul class="dropdown-menu">
+                    <li id="Enterpriseconsulting1"><a href="#">公司动态</a></li>
+                    <li id="Enterpriseconsulting2"><a href="#">常见问题</a></li>
+                </ul>
+            </li>
+            <li class="menu_item"><a href="#">联系我们</a></li>
+
+
+            <!--<li>-->
+            <!--<table style="margin-top: 15px;height:20px;border:1.5px solid #9d9d9d;">-->
+            <!--<tr>-->
+            <!--<th></th>-->
+            <!--</tr>-->
+            <!--</table>-->
+            <!--</li>-->
+            <li class="menu_item" style="display: none;">
+                <div class="has-feedback" id="search_li">
+                    <input type="text" class="form-control" id="search" placeholder="输入搜索信息">
+                    <span id="search_icon" class="glyphicon glyphicon-search form-control-feedback"></span></div>
+            </li>
+            <li class="menu_item" style="display: none"><a role="button" data-toggle="modal" data-target="#login">登录</a>
+            </li>
+            <li style="display:none" class="menu_item">
+                <!--style="max-width: 100px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"-->
+                <a href="#"><span></span><span class="glyphicon glyphicon-triangle-bottom" id="drag_gly"></span></a>
+                <ul class="dropdown-menu text-center">
+                    <li class="menu_item"><a href="#">信息管理</a></li>
+                    <li class="menu_item"><a href="#">退出</a></li>
+                </ul>
+            </li>
+            <li class="menu_item" id="Feedback"><a role="button" href="javascript:;">客户评价</a></li>
+        </ul>
+    </div>
+</nav>
+<!--轮播图-->
+<div class='o-sliderContainer' id="pbSliderWrap">
+    <div class='o-slider' id='pbSlider'>
+        <div class="o-slider--item" data-image="img/index_1.jpg">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">基地图片</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle"></h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph"></p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="img/index_2.jpg">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">蛙卵</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle"></h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph"></p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="img/index_3.jpg">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">蛙苗</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle"></h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph"> </p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="img/index_4.jpg">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">成蛙</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle"></h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph"></p>
+            </div>
+        </div>
+        <div class="o-slider--item" data-image="img/index_5.jpg">
+            <div class="o-slider-textWrap">
+                <h1 class="o-slider-title">种蛙</h1>
+                <span class="a-divider"></span>
+                <h2 class="o-slider-subTitle"></h2>
+                <span class="a-divider"></span>
+                <p class="o-slider-paragraph"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--养殖青蛙的一些信息-->
+<nav class="navbar navbar-default" id="nav_menu">
+    <ul class="nav nav-tabs" id="forg_message">
+        <li class="active">
+            <!--<a href="#aa" data-toggle="tab">
+            <span class="glyphicon glyphicon-home"></span>-->
+            <!--<span>首页</span><span> > </span><span>关于我们</span></a>-->
+        </li>
+        <div class="tab-content" style="min-height: 200px;">
+            <div class="tab-pane fade in active" id="aa">
+                <div id="nav_all_extend">
+                    <div id="nav_extend" style="display: none">
+                    </div>
+                    <div>
+                        <div><span>公司动态</span></div>
+                        <!--<li title="公司动态"><span>养蛙行业经济价值</span><span class="sr-only">1</span></li>-->
+                        <!--<li title="公司动态"><span>黑斑蛙养殖前景</span><span class="sr-only">2</span></li>-->
+                        <!--<li title="公司动态"><span>幼蛙的饲养</span><span class="sr-only">3</span></li>-->
+                    </div>
+                    <div>
+                        <div><span>推荐产品</span></div>
+                        <!--<div><img src="img/1.jpg" alt="蛙苗"><a>蛙苗</a></div>-->
+                        <!--<div><img src="img/1.jpg" alt="蛙苗"><a>蛙苗</a></div>-->
+                        <!--<div><img src="img/1.jpg" alt="蛙苗"><a>蛙苗</a></div>-->
+                    </div>
+
+                </div>
+                <div id="nav_content" style="display: none">
+               <span id="nav_span">
+                   <!--<p>义安区西联乡福贵养殖场，坐落于安徽省铜陵市义安区官上村，交通便利。作为铜陵地区一家证件齐全的特种养殖场，现有露天养殖基地30余亩，冬暖式温室大棚养殖基地20余亩，年产成蛙十万余斤，公司坚持以科技为支持，走科学、生态、绿色养蛙发展道路，经过多年的养蛙实践，攻克了“青蛙全程饲料喂养”的技术。这一重大突破，将克服由于活饵有限不能大规模发展青蛙人工养殖的瓶颈。多元化饵料也大大提高了青蛙的抗病能力，同时也提高了青蛙的生长速度以及产量。欢迎新老客户来我养殖场参观指导！</p>-->
+                   <!--<p>义安区西联乡福贵养殖场，坐落于安徽省铜陵市义安区官上村，交通便利。作为铜陵地区一家证件齐全的特种养殖场，现有露天养殖基地30余亩，冬暖式温室大棚养殖基地20余亩，年产成蛙十万余斤，公司坚持以科技为支持，走科学、生态、绿色养蛙发展道路，经过多年的养蛙实践，攻克了“青蛙全程饲料喂养”的技术。这一重大突破，将克服由于活饵有限不能大规模发展青蛙人工养殖的瓶颈。多元化饵料也大大提高了青蛙的抗病能力，同时也提高了青蛙的生长速度以及产量。欢迎新老客户来我养殖场参观指导！</p>-->
+               </span>
+                </div>
+
+
+
+                <!--许可证-->
+                <div class="slider slider_one_big_picture">
+                    <!--<div><img src="img/1.jpg" alt="蛙苗" style="width: 864px;height: 422px;"></div>-->
+                    <!--<div><img src="img/2.jpg" alt="蛙苗" style="width: 864px;height: 422px;"></div>-->
+                    <div class="next_button"></div>
+                    <div class="prev_button"></div>
+                    <div class="nav_indicators"></div>
+                </div>
+                <!--基地轮播图-->
+                <div id="jssor_1"
+                     style="display:none;position: relative; margin: 0 auto;margin-bottom: 27px; top: 20px; left: 21px; width: 960px; height: 480px; overflow: hidden; visibility: hidden; background-color: #24262e;">
+                    <!-- Loading Screen -->
+                    <!--<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">-->
+                    <!--<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>-->
+                    <!--<div style="position:absolute;display:block;background:url('../static/img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>-->
+                    <!--</div>-->
+                    <!--<div data-u="slides"-->
+                    <!--style="cursor: default; position: relative; top: 0px; left: 240px; width: 720px; height: 480px; overflow: hidden;"-->
+                    <!--id="jssor_1_img">-->
+                    <!--<div data-p="150.00">-->
+                    <!--<img data-u="image" src="img/1.jpg"/>-->
+                    <!--<img data-u="thumb" src="img/1.jpg"/>-->
+                    <!--</div>-->
+                    <!--<div data-p="150.00" style="display: none;">-->
+                    <!--<img data-u="image" src="img/2.jpg"/>-->
+                    <!--<img data-u="thumb" src="img/2.jpg"/>-->
+                    <!--</div>-->
+                    <!--<div data-p="150.00" style="display: none;">-->
+                    <!--<img data-u="image" src="img/3.jpg"/>-->
+                    <!--<img data-u="thumb" src="img/3.jpg"/>-->
+                    <!--</div>-->
+                    <!--<a data-u="any" href="#" style="display:none">Image Gallery with Vertical Thumbnail</a>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; Thumbnail Navigator &ndash;&gt;-->
+                    <!--<div data-u="thumbnavigator" class="jssort01-99-66"-->
+                    <!--style="position:absolute;left:0px;top:0px;width:240px;height:480px;" data-autocenter="2">-->
+                    <!--&lt;!&ndash; Thumbnail Item Skin Begin &ndash;&gt;-->
+                    <!--<div data-u="slides" style="cursor: default;">-->
+                    <!--<div data-u="prototype" class="p">-->
+                    <!--<div class="w">-->
+                    <!--<div data-u="thumbnailtemplate" class="t"></div>-->
+                    <!--</div>-->
+                    <!--<div class="c"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; Thumbnail Item Skin End &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; Arrow Navigator &ndash;&gt;-->
+                    <!--<span data-u="arrowleft" class="jssora05l" style="top:0px;left:248px;width:40px;height:40px;"-->
+                    <!--data-autocenter="2"></span>-->
+                    <!--<span data-u="arrowright" class="jssora05r" style="top:0px;right:8px;width:40px;height:40px;"-->
+                    <!--data-autocenter="2"></span>-->
+                </div>
+                <!-- -->
+                <!--客户实例-->
+                <ul id="customers" style="display: none;">
+                    <!--<li class="customer">-->
+                    <!--<div style="float: left; margin-left: -17px;padding: 17px;">-->
+                    <!--<img src="img/2.jpg" href="#" title="永泉农庄" class="customer_img" alt="图片">-->
+                    <!--</div>-->
+                    <!--<div style="padding: 17px;line-height: 27px;">-->
+                    <!--<div><span class="sr-only">1</span><h4 style="font-weight: bold;font-size: 20px;float:left">永泉农庄 </h4>-->
+                    <!--<span>联系电话:</span><label>18255341632</label><span>发布时间:</span>-->
+                    <!--<label style="font-family: initial;">2018-5-6</label>-->
+                    <!--</div>-->
+                    <!--<p style="max-height: 117px;overflow-y: scroll;margin-top: 9px;">客户名称：永泉农庄-->
+                    <!--客户评价：福贵养殖场一直为我们提供青蛙肉的供应，他们的蛙肉很新鲜、送货速度快。而且蛙肉很大，分量很足为我们提供青蛙肉的供应，他们的蛙肉很新鲜、送货速度快。而且蛙肉很大，分量很足。用来做菜十分的肥美，煲汤比鸡汤还浓。上我们这为我们提供青蛙肉的供应，他们的蛙肉很新鲜、送货速度快。而且蛙肉很大，分量很足。用来做菜十分的肥美，煲汤比鸡汤还浓。上我们这。用来做菜十分的肥美，煲汤比鸡汤还浓。上我们这里来吃过的客户名称：永泉农庄-->
+                    <!--客户评价：福贵养殖场一直为我们提供青蛙肉的供应，他们的蛙肉很新鲜、送货速度快。而且蛙肉很大，分量很足。用来做菜十分的肥美，煲汤比鸡汤还浓。上我们这里来吃过的客人无不交口称赞，甚至还有向我们打听问我们哪里进的蛙肉的呢。</p>-->
+                    <!--</div>-->
+                    <!--</li>-->
+                    <!--分页-->
+                    <ul id="ampaginationlg-bootstrap" style="float: left;"></ul>
+                    <div id="page_skip">
+                        <span>跳转至</span>
+                        <input type="text" id="input_page" style="width: 43px;height: 28px;text-align: center;">
+                        <button class="btn btn-default" id="page_btn">确定</button>
+                    </div>
+                    <!---->
+                </ul>
+                <!---->
+
+                <!-- 产品中心-->
+
+                <ul id="product">
+                    <!--<li title="蛙苗">-->
+                    <!--<div><img src="img/1.jpg" alt="蛙苗"><a>蛙苗</a></div>-->
+                    <!--<div><img src="img/1.jpg" alt="蛙苗"><a>蛙苗</a></div>-->
+                    <!--<div><img src="img/1.jpg" alt="蛙苗"><a>蛙苗</a></div>-->
+                    <!--</li>-->
+                </ul>
+                <!--产品的内容-->
+                <div id="product_item">
+                    <h1 id="product_item_title">蛙苗</h1>
+                    <div id="product_item_content">
+                        <!--fsfsd-->
+                    </div>
+                </div>
+                <!---->
+                <!--企业资讯-->
+                <ul id="business_news">
+                    <!--<li title="公司动态"><span>养蛙行业经济价值</span><span class="sr-only">1</span></li>-->
+                    <!--<li title="公司动态"><span>黑斑蛙养殖前景</span><span class="sr-only">2</span></li>-->
+                    <!--<li title="公司动态"><span>幼蛙的饲养</span><span class="sr-only">3</span></li>-->
+                    <!--<li title="公司动态"><span>黑斑蛙的训食方法</span><span class="sr-only">4</span></li>-->
+                    <!--<li title="常见问题"><span>青蛙养殖应做好哪些提前准备</span><span class="sr-only">5</span></li>-->
+                    <!--<li title="常见问题"><span>常见黑斑蛙幼苗的危害及防治</span><span class="sr-only">6</span></li>-->
+                </ul>
+                <!---->
+                <div id="business_news_item">
+                    <h1 id="business_news_item_title">养娃行业经济价值</h1>
+                    <div id="business_news_item_content">
+
+                    </div>
+                </div>
+
+                <!--联系我们-->
+                <div id="contact">
+                    <p id="bussiness_name"><label>单位名称:</label><span></span></p>
+                    <p id="business_address"><label>地址:</label><span></span></p>
+                    <p id="business_tel"><label>手机:</label><span></span></p>
+                    <p id="business_boss"><label>联系人:</label><span></span></p>
+                    <div id="baidu_map"></div>
+                </div>
+                <!---->
+
+
+                <!--客户留言-->
+                <div id="CustomerEvaluation">
+                    <form action="" type="post" id="CustomerEvaluationForm">
+                        <div class="form-group">
+                            <label class="control-label" for="customername">客户名称:</label>
+                            <div>
+                                <input type="text" class="form-control" id="customername" name="customername">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="telPhone">联系电话:</label>
+                            <div>
+                                <input type="text" class="form-control" id="telPhone" name="telPhone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">客户照片:</label>
+                            <div>
+                                <img src="img/customerimage.jpg" href="javascript:;" id="customerimg">
+                                <span style="position: absolute;margin-top: 62px;padding: 6px;margin-left: -100px;width: 100px;text-align: center;cursor: pointer;">更换图片
+                                </span>
+                                <input type="file" class="hidden" onchange="selectImg(this)" .>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="customerevaluate">客户评价:</label>
+                            <div>
+                                <textarea class="form-control" id="customerevaluate" name="customerevaluate"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-info" value="提交"><input type="reset"
+                                                                                        class="btn btn-danger"
+                                                                                        value="重置">
+                        </div>
+                    </form>
+                    <div id="CustomerInstance_success_after">
+                        <span>请等待管理员的审核<a role="button" class="btn">立即返回</a></span>
+                    </div>
+                </div>
+                <!--返回到顶部-->
+                <div id="top">
+                    <a href="#pbSliderWrap" style="width: 100%;height: 100%;display: block;">
+                        <span class="glyphicon glyphicon-chevron-up"></span></a>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </ul>
+
+</nav>
+<div id="index">
+    <div id="Company_introduction">
+        <div class="head"><span>公司介绍</span><a href="javascript:;">更多</a></div>
+        <div>
+            <div><img src="img/company_introduction.jpg"></div>
+            <div>
+                <h3>青蛙养殖公司</h3>
+                <div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="index_EnterpriseConsulting">
+        <div id="index_CompanyDynamics">
+            <div><span>公司动态</span><a href="javascript:;">更多</a></div>
+            <ul>
+                <!--<li title="公司动态"><span>养蛙行业经济价值</span><span class="sr-only">1</span></li>-->
+                <!--<li title="公司动态"><span>黑斑蛙养殖前景</span><span class="sr-only">2</span></li>-->
+            </ul>
+        </div>
+        <div id="index_CommonProblem">
+            <div><span>常见问题</span><a href="javascript:;">更多</a></div>
+            <ul>
+                <!--<li title="常见问题"><span>养蛙行业经济价值</span><span class="sr-only">1</span></li>-->
+                <!--<li title="常见问题"><span>黑斑蛙养殖前景</span><span class="sr-only">2</span></li>-->
+                <!--<li title="常见问题"><span>幼蛙的饲养</span><span class="sr-only">3</span></li>-->
+            </ul>
+        </div>
+    </div>
+    <div id="index_Product_classification">
+        <div id="Product_classification">
+            <div><span>产品中心</span><a href="javascript:;">更多</a></div>
+            <ul>
+                <li>蛙苗</li>
+                <li>成蛙</li>
+                <li>种蛙</li>
+            </ul>
+
+        </div>
+        <div id="Product_classification_img">
+            <div><span>产品图片</span><a href="javascript:;">更多</a></div>
+            <ul>
+                <li><img src="img/1.jpg"><a>蛙苗</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <!--主页视频-->
+    <div id="index_video">
+        <div class="head"><span>视频</span></div>
+        <ul>
+            <!--<li>-->
+            <!--<video src="indexVideo/VID20180228101739.mp4" preload="metadata" autoplay="autoplay" controls="controls"></video>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<video src="indexVideo/VID20180228101739.mp4" preload="metadata" autoplay="autoplay" controls="controls"></video>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<video src="indexVideo/VID20180228101739.mp4" preload="metadata" autoplay="autoplay" controls="controls"></video>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>
+<!--图像全屏-->
+<div id="galleria" style="">
+</div>
+
+<div id="footer">
+    <div>
+        <p><span></span></p>
+        <p><label>地址:</label>&nbsp;<span></span></p>
+        <p><label>手机:</label>&nbsp;<span></span>&nbsp;&nbsp;<label>联系人:</label><span></span></p>
+    </div>
+</div>
+
+<!--在线客服-->
+<div id="customer_service">
+    <div id="customer_sevice_head" onmousedown="win_down(this,event)" onmousemove="win_move(this,event)"
+         onmouseup="win_up(this)">
+        <label>在线咨询</label><span><img src="img/最小化.png"></span>
+    </div>
+    <div id="customer_service_content">
+        <!--<div class="customer_service">-->
+        <!--<img src="img/1.jpg" alt="客服" class="service_head_img">-->
+        <!--<div class="service_time"><span>2018-04-17 15:28:48</span><span>客服</span></div>-->
+
+        <!--<div class="service_input_content">-->
+        <!--<p>刚发的是个尴尬啥地方噶水电费个是大法官士大夫双方都是dfg是大法官是大法官士大夫士大夫都是是大法官 奋斗故事</p>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="online">-->
+        <!--<span>客服在线</span>-->
+        <!--</div>-->
+        <!--<div class="visitor">-->
+        <!--<img src="img/1.jpg" alt="访客" class="visitor_head_img">-->
+        <!--<div class="visitor_time"><span>2018-04-17 15:28:48</span><span>访客</span></div>-->
+        <!--<div class="visitor_input_content">-->
+        <!--刚发的是个尴尬啥地方噶水电费个是大法官士大夫双方都是dfg是大法官是大法官士大夫士大夫都是是大法官 奋斗故事-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="tip">-->
+        <!--<span>当前客服不在线，请电话联系</span>-->
+        <!--</div>-->
+
+    </div>
+    <div id="customer_service_foot">
+                      <textarea id="customer_service_input" class="form-control">
+
+                      </textarea>
+        <button class="btn btn-default">发送</button>
+    </div>
+</div>
+<!---->
+<div id="customer_service_small">
+    <label>在线咨询</label><span class="badge"></span>
+</div>
+
+<!--<script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>-->
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/jquery.validate-1.13.1.js"></script>
+<script src="http://www.imooc.com/data/jquery.cookie.js" type="text/javascript"></script>
+<script src="js/layer.js"></script>
+<script src="layui/layui.js"></script>
+<script src="js/drag.js"></script>
+<script src="js/hammer.min.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/jquery.slidorion.js"></script>
+<script src="js/jssor.slider-21.1.6.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/am-pagination.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+<!--百叶图-->
+<script src="js/jquery.easy_slides.js"></script>
+<!--全屏图片-->
+<script src="js/galleria.js"></script>
+
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

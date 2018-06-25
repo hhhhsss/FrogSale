@@ -1,0 +1,45 @@
+spring:
+  profiles:
+    active: first
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://115.159.151.134:3306/frogsale?useUnicode=true&characterEncoding=utf-8
+    username: rencai
+    password: RENcai123.
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  thymeleaf:
+    prefix: classpath:/templates/
+    mode: HTML5
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  mail:
+    host: smtp.qq.com
+    password: 17355508475boy
+    username: 1637586409@qq.com
+    default-encoding: UTF-8
+    port: 465
+    properties:
+     mail:
+       debug: true
+       smtp:
+         socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+#设置文件上传大小
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50mb
+      max-request-size: 100mb
+
+
+
+
+
+
+
